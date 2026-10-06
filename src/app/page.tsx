@@ -6,7 +6,6 @@ import {
   MapPin,
   Plus as PlusIcon,
   Quote as QuoteIcon,
-  Sparkle,
 } from "lucide-react"
 import Image from "next/image"
 
@@ -23,19 +22,35 @@ type ShowcaseItem = {
   platform: string
   build: string
   scope: string
-  href: string
+  href?: string
   icon?: string
+  storeLinks?: StoreLink[]
+}
+
+type StoreLink = {
+  store: "app-store" | "google-play"
+  href: string
 }
 
 const mobileApps: ShowcaseItem[] = [
   {
-    name: "Unicapp",
-    description: "Groceries and daily essentials with fast delivery.",
-    platform: "iOS · Customer app",
-    build: "React Native · REST APIs · App Store release",
+    name: "NutriPal",
+    description:
+      "AI nutrition companion that turns meal photos into instant calorie and macro insights.",
+    platform: "iOS & Android · Health & Fitness",
+    build: "Meal scanning · Macro tracking · AI nutrition coach",
     scope: "Production",
-    href: "https://apps.apple.com/in/app/unica%20biz%20(60-min-delivery)",
-    icon: "/images/apps/unicapp.png",
+    icon: "/images/apps/nutripal.png",
+    storeLinks: [
+      {
+        store: "app-store",
+        href: "https://apps.apple.com/us/app/nutripal-eat-better/id6765948817",
+      },
+      {
+        store: "google-play",
+        href: "https://play.google.com/store/apps/details?id=io.nutripal&hl=en_IN",
+      },
+    ],
   },
   {
     name: "Unicapp Biz",
@@ -43,44 +58,89 @@ const mobileApps: ShowcaseItem[] = [
     platform: "iOS · Merchant app",
     build: "Order and pricing workflows · Full product ownership",
     scope: "Production",
-    href: "https://apps.apple.com/in/app/unicapp-biz-60-min-delivery/id6755399722",
     icon: "/images/apps/unicapp-biz.jpg",
+    storeLinks: [
+      {
+        store: "app-store",
+        href: "https://apps.apple.com/in/app/unicapp-biz-60-min-delivery/id6755399722",
+      },
+      {
+        store: "google-play",
+        href: "https://play.google.com/store/apps/details?id=com.unicapp.store&hl=en_IN",
+      },
+    ],
   },
   {
     name: "Unicapptain",
     description: "Accept, track, and complete deliveries in real time.",
-    platform: "iOS · Delivery app",
+    platform: "iOS & Android · Delivery app",
     build: "Real-time delivery tracking and status updates",
     scope: "Production",
-    href: "https://apps.apple.com/in/app/unicapptain-delivery-partner/id6761067658",
     icon: "/images/apps/unicapp-capptain.jpg",
+    storeLinks: [
+      {
+        store: "app-store",
+        href: "https://apps.apple.com/in/app/unicapptain-delivery-partner/id6761067658",
+      },
+      {
+        store: "google-play",
+        href: "https://play.google.com/store/apps/details?id=com.unicapp.capptain&hl=en_IN",
+      },
+    ],
   },
   {
     name: "Skanaus",
     description: "A production mobile application developed as a freelance project.",
-    platform: "iOS · Client app",
+    platform: "iOS & Android · Client app",
     build: "Shipped end to end as a freelance product",
     scope: "Freelance",
-    href: "https://apps.apple.co/skanaus/id6753877628",
     icon: "/images/apps/skanaus.jpg",
+    storeLinks: [
+      {
+        store: "app-store",
+        href: "https://apps.apple.co/skanaus/id6753877628",
+      },
+      {
+        store: "google-play",
+        href: "https://play.google.com/store/apps/details?id=com.farhan.skanaus.app&hl=en_IN",
+      },
+    ],
   },
   {
     name: "MedKare",
     description: "A healthcare mobile application with a modern, focused user experience.",
-    platform: "iOS · Health app",
+    platform: "iOS & Android · Health app",
     build: "React Native · TypeScript · REST APIs",
     scope: "Personal",
-    href: "https://apps.apple.com/in/app/medkare/id6779274301",
     icon: "/images/apps/medkare.jpg",
+    storeLinks: [
+      {
+        store: "app-store",
+        href: "https://apps.apple.com/in/app/medkare/id6779274301",
+      },
+      {
+        store: "google-play",
+        href: "https://play.google.com/store/apps/details?id=com.sylvabit.medlog&hl=en_IN",
+      },
+    ],
   },
   {
     name: "ReceiptVault",
     description: "An offline-first receipt scanner for private expense organization.",
-    platform: "iOS · Utility",
+    platform: "iOS & Android · Utility",
     build: "OCR · SQLite · RevenueCat · Biometrics",
     scope: "Personal",
-    href: "https://apps.apple.com/in/app/receiptvault-scan-organize/id6779995494",
     icon: "/images/apps/receiptvault.jpg",
+    storeLinks: [
+      {
+        store: "app-store",
+        href: "https://apps.apple.com/in/app/receiptvault-scan-organize/id6779995494",
+      },
+      {
+        store: "google-play",
+        href: "https://play.google.com/store/apps/details?id=com.sylvabit.receiptvault&hl=en_IN",
+      },
+    ],
   },
   {
     name: "OnDevice PDF",
@@ -89,8 +149,32 @@ const mobileApps: ShowcaseItem[] = [
     platform: "Android · Tools",
     build: "Fully on-device processing — no account, no ads, no uploads",
     scope: "Personal",
-    href: "https://play.google.com/store/apps/details?id=com.sylvabit.ondevicepdf&hl=en_IN",
     icon: "/images/ondevice-pdf.png",
+    storeLinks: [
+      {
+        store: "google-play",
+        href: "https://play.google.com/store/apps/details?id=com.sylvabit.ondevicepdf&hl=en_IN",
+      },
+    ],
+  },
+  {
+    name: "Unicapp",
+    description:
+      "Book local and nationwide parcel deliveries with live tracking and status updates.",
+    platform: "iOS & Android · Logistics app",
+    build: "React Native · REST APIs · Live shipment tracking",
+    scope: "Production",
+    icon: "/images/apps/unicapp.png",
+    storeLinks: [
+      {
+        store: "app-store",
+        href: "https://apps.apple.com/in/app/unicapp/id6753945259",
+      },
+      {
+        store: "google-play",
+        href: "https://play.google.com/store/apps/details?id=com.unicapp.unicapp&hl=en_IN",
+      },
+    ],
   },
 ]
 
@@ -296,12 +380,12 @@ export default function Home() {
             <div className="hero-mark absolute bottom-6 left-4 z-20 rounded-full border border-dashed border-[var(--line-strong)] bg-[var(--accent)] p-[3px] shadow-[0_18px_45px_rgb(7_14_28_/_0.18)]">
               <div className="relative size-20 overflow-hidden rounded-full bg-[var(--secondary)] ring-1 ring-[var(--line)] ring-inset sm:size-24">
                 <Image
-                  alt="Farhan Muzaffar"
-                  className="scale-[1.20] object-cover object-top"
+                  alt="Farhan Muzaffar profile artwork"
+                  className="object-cover"
                   fill
                   priority
                   sizes="96px"
-                  src="/images/profile.png"
+                  src="/images/profile-samurai.jpg"
                 />
               </div>
             </div>
@@ -403,7 +487,7 @@ export default function Home() {
             <PanelHeader>
               <PanelTitle>Mobile apps</PanelTitle>
               <p className="max-w-[64ch] border-t border-[var(--line)] py-5 text-sm leading-6 text-[var(--muted-foreground)]">
-                Seven shipped apps across production, freelance, and personal
+                Eight shipped apps across production, freelance, and personal
                 work — each one with the build behind it.
               </p>
             </PanelHeader>
@@ -598,61 +682,106 @@ function ShowcaseGrid({ items }: { items: ShowcaseItem[] }) {
 
   return (
     <div className="grid border-t border-[var(--line)] sm:grid-cols-2">
-      {items.map((item, index) => (
-        <a
-          className={cn(
-            "group flex flex-col justify-between gap-6 p-4 transition-[background-color] duration-200 ease-out hover:bg-[var(--hover)]",
-            index < items.length - 1 && "border-b border-[var(--line)]",
-            index % 2 === 0 && "sm:border-r sm:border-[var(--line)]",
-            lastItemSpansRow &&
-              index === items.length - 1 &&
-              "sm:col-span-2 sm:border-r-0"
-          )}
-          href={item.href}
-          key={item.name}
-          rel="noreferrer"
-          target="_blank"
-        >
-          <div className="flex items-start justify-between gap-3">
-            <div className="flex min-w-0 items-start gap-3">
-              {item.icon ? (
-                <Image
-                  alt=""
-                  className="size-11 shrink-0 rounded-[10px] border border-[var(--line)]"
-                  height={44}
-                  src={item.icon}
-                  width={44}
-                />
-              ) : null}
-              <div className="min-w-0">
-                <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-                  <h3 className="font-semibold tracking-[-0.015em]">
-                    {item.name}
-                  </h3>
-                  <span className="font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-[var(--brand)]">
-                    {item.scope}
-                  </span>
-                </div>
-                <p className="mt-2 max-w-[52ch] text-sm leading-6 text-[var(--muted-foreground)]">
-                  {item.description}
-                </p>
-              </div>
-            </div>
-            <ArrowUpRight className="size-4 shrink-0 text-[var(--muted-foreground)] transition-[color,transform] duration-200 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[var(--brand)]" />
-          </div>
+      {items.map((item, index) => {
+        const className = cn(
+          "group flex flex-col justify-between gap-6 p-4 transition-[background-color] duration-200 ease-out hover:bg-[var(--hover)]",
+          index < items.length - 1 && "border-b border-[var(--line)]",
+          index % 2 === 0 && "sm:border-r sm:border-[var(--line)]",
+          lastItemSpansRow &&
+            index === items.length - 1 &&
+            "sm:col-span-2 sm:border-r-0"
+        )
 
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-2 border-t border-dashed border-[var(--line)] pt-3">
-            <span className="font-mono text-[10px] font-medium uppercase tracking-[0.12em] text-[var(--muted-foreground)]">
-              {item.platform}
-            </span>
-            <span className="text-xs text-[var(--muted-foreground)]">
-              {item.build}
-            </span>
-          </div>
-        </a>
-      ))}
+        return item.storeLinks ? (
+          <article className={className} key={item.name}>
+            <ShowcaseContent item={item} />
+          </article>
+        ) : (
+          <a
+            className={className}
+            href={item.href}
+            key={item.name}
+            rel="noreferrer"
+            target="_blank"
+          >
+            <ShowcaseContent item={item} />
+          </a>
+        )
+      })}
     </div>
   )
 }
 
+function ShowcaseContent({ item }: { item: ShowcaseItem }) {
+  return (
+    <>
+      <div className="flex items-start justify-between gap-3">
+        <div className="flex min-w-0 items-start gap-3">
+          {item.icon ? (
+            <Image
+              alt={`${item.name} app icon`}
+              className="size-11 shrink-0 rounded-[10px] border border-[var(--line)]"
+              height={44}
+              src={item.icon}
+              width={44}
+            />
+          ) : null}
+          <div className="min-w-0">
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+              <h3 className="font-semibold tracking-[-0.015em]">{item.name}</h3>
+              <span className="font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-[var(--brand)]">
+                {item.scope}
+              </span>
+            </div>
+            <p className="mt-2 max-w-[52ch] text-sm leading-6 text-[var(--muted-foreground)]">
+              {item.description}
+            </p>
+          </div>
+        </div>
+        {!item.storeLinks ? (
+          <ArrowUpRight className="size-4 shrink-0 text-[var(--muted-foreground)] transition-[color,transform] duration-200 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[var(--brand)]" />
+        ) : null}
+      </div>
 
+      <div className="border-t border-dashed border-[var(--line)] pt-3">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+          <span className="font-mono text-[10px] font-medium uppercase tracking-[0.12em] text-[var(--muted-foreground)]">
+            {item.platform}
+          </span>
+          <span className="text-xs text-[var(--muted-foreground)]">{item.build}</span>
+        </div>
+        {item.storeLinks ? (
+          <div className="mt-3 flex flex-wrap gap-2">
+            {item.storeLinks.map((link) => (
+              <StoreLinkButton key={link.store} link={link} />
+            ))}
+          </div>
+        ) : null}
+      </div>
+    </>
+  )
+}
+
+function StoreLinkButton({ link }: { link: StoreLink }) {
+  const isAppStore = link.store === "app-store"
+
+  return (
+    <a
+      className="inline-flex h-8 items-center gap-1.5 rounded-md border border-[var(--line)] bg-[var(--secondary)] px-2.5 font-mono text-[10px] font-medium uppercase tracking-[0.1em] text-foreground transition-[background-color,border-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-[var(--brand)] hover:bg-[var(--accent)]"
+      href={link.href}
+      rel="noreferrer"
+      target="_blank"
+    >
+      <Image
+        alt=""
+        aria-hidden="true"
+        className="size-3.5 shrink-0 object-contain"
+        height={14}
+        src={isAppStore ? "/images/appstore.png" : "/images/playstore.png"}
+        width={14}
+      />
+      {isAppStore ? "App Store" : "Google Play"}
+      <ArrowUpRight aria-hidden="true" className="size-3" />
+    </a>
+  )
+}
