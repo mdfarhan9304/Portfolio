@@ -9,7 +9,7 @@ export function SiteLogo({
 }) {
   return (
     <a
-      aria-label="Farhan Muzaffar — Home"
+      aria-label="Farhan Muzaffar home"
       className={cn("group inline-flex items-center gap-2.5", className)}
       href="#home"
     >

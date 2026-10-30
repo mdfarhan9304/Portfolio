@@ -36,7 +36,7 @@ const mobileApps: ShowcaseItem[] = [
   {
     name: "NutriPal",
     description:
-      "AI nutrition companion that turns meal photos into instant calorie and macro insights.",
+      "Photo-based nutrition tracking with calorie and macro estimates.",
     platform: "iOS & Android · Health & Fitness",
     build: "Meal scanning · Macro tracking · AI nutrition coach",
     scope: "Production",
@@ -90,7 +90,7 @@ const mobileApps: ShowcaseItem[] = [
   },
   {
     name: "Skanaus",
-    description: "A production mobile application developed as a freelance project.",
+    description: "Freelance mobile app built for a client.",
     platform: "iOS & Android · Client app",
     build: "Shipped end to end as a freelance product",
     scope: "Freelance",
@@ -108,7 +108,7 @@ const mobileApps: ShowcaseItem[] = [
   },
   {
     name: "MedKare",
-    description: "A healthcare mobile application with a modern, focused user experience.",
+    description: "Healthcare mobile app with a focused user experience.",
     platform: "iOS & Android · Health app",
     build: "React Native · TypeScript · REST APIs",
     scope: "Personal",
@@ -126,7 +126,7 @@ const mobileApps: ShowcaseItem[] = [
   },
   {
     name: "ReceiptVault",
-    description: "An offline-first receipt scanner for private expense organization.",
+    description: "Offline-first receipt scanner for private expense tracking.",
     platform: "iOS & Android · Utility",
     build: "OCR · SQLite · RevenueCat · Biometrics",
     scope: "Personal",
@@ -147,7 +147,7 @@ const mobileApps: ShowcaseItem[] = [
     description:
       "Private PDF toolkit for merge, split, rotate, compress, and password-protect files.",
     platform: "Android · Tools",
-    build: "Fully on-device processing — no account, no ads, no uploads",
+    build: "On-device processing. No account, ads, or uploads.",
     scope: "Personal",
     icon: "/images/ondevice-pdf.png",
     storeLinks: [
@@ -181,7 +181,7 @@ const mobileApps: ShowcaseItem[] = [
 const webPlatforms: ShowcaseItem[] = [
   {
     name: "Unicapp Website",
-    description: "Customer-facing ordering and delivery platform for daily essentials.",
+    description: "Customer ordering and delivery platform for everyday essentials.",
     platform: "Web · Customer platform",
     build: "Ordering, delivery tracking, and storefront flows",
     scope: "Production",
@@ -189,7 +189,7 @@ const webPlatforms: ShowcaseItem[] = [
   },
   {
     name: "Namak Mirchi",
-    description: "Private store and restaurant ordering experience for a growing brand.",
+    description: "Store and restaurant ordering platform for a local brand.",
     platform: "Web · Storefront",
     build: "Storefront and restaurant ordering experience",
     scope: "Production",
@@ -197,7 +197,7 @@ const webPlatforms: ShowcaseItem[] = [
   },
   {
     name: "Beauty of Pets",
-    description: "Booking platform with payments and admin tooling for pet businesses.",
+    description: "Booking platform with payments and admin tools for pet businesses.",
     platform: "Web · Booking",
     build: "Booking flows, checkout, and reusable admin interfaces",
     scope: "Platform",
@@ -217,7 +217,7 @@ const experiences: RoleItem[] = [
   {
     company: "Eternal Tech Verse Pvt. Ltd.",
     position: "Full Stack Product Engineer",
-    period: "Nov 2025 – Present",
+    period: "Nov 2025 to Present",
     stack: [
       "React",
       "Angular",
@@ -232,20 +232,20 @@ const experiences: RoleItem[] = [
     ],
     logo: "/images/companies/eternal-tech-verse.svg",
     bullets: [
-      "Take end-to-end ownership of multiple web and mobile products — from product requirements and technical design through production deployment and release.",
-      "Architect application structure, reusable component systems, and API integration strategies across React, Angular, Next.js, and React Native codebases, balancing scalability, maintainability, and performance.",
-      "Move fluidly between frontend, backend, and infrastructure work — REST APIs, Docker, Nginx, and CI/CD pipelines — to ship and operate complete products.",
-      "Partner with product and backend teams to shape technical direction, validate requirements, and resolve production issues, while using AI-assisted tooling to accelerate planning, debugging, review, and refactoring and validating all production code independently.",
+      "Own web and mobile products from requirements and technical design through deployment and release.",
+      "Design application architecture, component systems, and API integrations across React, Angular, Next.js, and React Native.",
+      "Work across frontend, backend, and infrastructure to ship and run complete products with REST APIs, Docker, Nginx, and CI/CD.",
+      "Work with product and backend teams on technical direction, requirements, and production issues. Use AI tools for planning, debugging, review, and refactoring while validating production code independently.",
     ],
   },
   {
     company: "Unicapp Logistics",
     position: "Founding Engineer",
-    period: "Feb 2025 – Nov 2025",
+    period: "Feb 2025 to Nov 2025",
     stack: ["Next.js", "React Native", "Node.js", "Express.js", "MongoDB", "Razorpay"],
     logo: "/images/apps/unicapp.png",
     bullets: [
-      "Built a full-stack logistics platform from the ground up — a Next.js web application with a Node.js/Express.js backend and a cross-platform mobile app, through to App Store and Play Store launch.",
+      "Built a logistics platform with a Next.js web app, Node.js/Express.js backend, and cross-platform mobile app, then launched it on the App Store and Google Play.",
       "Built a multi-tenant seller portal with dynamic subdomain routing and custom branding using Expo web and MongoDB.",
       "Developed RESTful APIs and integrated the Razorpay SDK across web and mobile platforms, achieving 40% faster load times.",
       "Integrated the Google Maps API for route optimization across the web dashboard and mobile apps.",
@@ -398,7 +398,7 @@ export default function Home() {
               <InfoItem icon={<MapPin size={16} />} text="India / Remote" />
               <InfoItem icon={<BriefcaseBusiness size={16} />} text="Full Stack Product Engineer at Eternal Tech Verse" />
               <InfoItem icon={<Code2 size={16} />} text="Mobile, backend, and AI systems" />
-              <InfoItem icon={<Layers3 size={16} />} text="Production-ready from idea to launch" />
+              <InfoItem icon={<Layers3 size={16} />} text="From idea to launch" />
             </div>
             <div className="pointer-events-none absolute inset-y-0 left-1/2 -z-0 hidden w-px border-r border-dashed border-[var(--line)] sm:block" />
           </Panel>
@@ -410,35 +410,33 @@ export default function Home() {
                   About
                 </p>
                 <h2 className="mt-3 max-w-[16ch] font-instrument-serif text-[clamp(1.75rem,3vw,2.5rem)] italic leading-[1.06] tracking-[-0.02em] text-balance">
-                  One engineer. Any stack.
+                  I build across the stack.
                 </h2>
                 <p className="mt-4 max-w-[28ch] text-sm leading-6 text-[var(--muted-foreground)]">
-                  From the last pixel to the pager when prod misbehaves.
+                  Mobile, web, APIs, and the infrastructure behind them.
                 </p>
               </div>
               <div className="space-y-4 p-4 text-[15px] leading-7 text-[var(--muted-foreground)] sm:text-base sm:leading-8">
                 <p>
-                  I&apos;m Farhan — the kind of engineer you hire when you need{" "}
-                  <span className="text-foreground">one person</span> who can
-                  move across mobile, web, APIs, and infra without treating any
-                  layer like someone else&apos;s problem.
+                  I&apos;m Farhan, a full-stack product engineer based in India. I
+                  build mobile and web products, APIs, and the infrastructure
+                  that keeps them running.
                 </p>
                 <p>
-                  I care about the craft — spacing, motion, the details people
-                  feel — and the unglamorous work after launch: deploys, logs,
-                  and fixing things when they break at the worst possible time.
+                  I care about the details people notice and the work they
+                  don&apos;t: deploys, logs, and fixing issues after launch.
                 </p>
               </div>
             </div>
 
             <div className="grid border-t border-[var(--line)] sm:grid-cols-3">
               <AboutStep
-                description="Polish UI, wire APIs, chase the details until the product feels right."
+                description="Build polished interfaces, connect APIs, and make the product feel considered."
                 step="01"
                 title="Fix the pixels"
               />
               <AboutStep
-                description="Ship end to end — apps, platforms, backends, and the pipeline that gets them out."
+                description="Ship apps, platforms, backends, and the pipeline that takes them live."
                 step="02"
                 title="Build & release"
               />
@@ -451,7 +449,7 @@ export default function Home() {
 
             <div className="grid border-t border-[var(--line)] sm:grid-cols-3">
               <Fact label="How I show up" value="One engineer, full ownership" />
-              <Fact label="Stack" value="Flexible — use what the product needs" />
+              <Fact label="Stack" value="Uses what the product needs" />
               <Fact label="After launch" value="Still on prod with you" />
             </div>
           </Panel>
@@ -487,8 +485,7 @@ export default function Home() {
             <PanelHeader>
               <PanelTitle>Mobile apps</PanelTitle>
               <p className="max-w-[64ch] border-t border-[var(--line)] py-5 text-sm leading-6 text-[var(--muted-foreground)]">
-                Eight shipped apps across production, freelance, and personal
-                work — each one with the build behind it.
+                Eight apps shipped for companies, clients, and personal use.
               </p>
             </PanelHeader>
 
@@ -501,8 +498,8 @@ export default function Home() {
             <PanelHeader>
               <PanelTitle>Web platforms</PanelTitle>
               <p className="max-w-[64ch] border-t border-[var(--line)] py-5 text-sm leading-6 text-[var(--muted-foreground)]">
-                Ordering, storefront, education, and booking platforms built end
-                to end.
+                Ordering, storefront, education, and booking platforms built
+                from start to launch.
               </p>
             </PanelHeader>
 
@@ -515,8 +512,8 @@ export default function Home() {
             <PanelHeader>
               <PanelTitle>Technical skills</PanelTitle>
               <p className="max-w-[64ch] border-t border-[var(--line)] py-5 text-sm leading-6 text-[var(--muted-foreground)]">
-                The tools I reach for across product engineering — languages,
-                frameworks, AI, data, and shipping.
+                Tools I use for product engineering: languages, frameworks, AI,
+                data, and infrastructure.
               </p>
             </PanelHeader>
 

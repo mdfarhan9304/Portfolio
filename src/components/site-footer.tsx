@@ -8,7 +8,7 @@ export function SiteFooter() {
         <SiteLogo />
 
         <p className="font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-[var(--muted-foreground)]">
-          {new Date().getFullYear()} — {siteConfig.role}
+          {new Date().getFullYear()} · {siteConfig.role}
         </p>
       </div>
     </footer>
