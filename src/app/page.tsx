@@ -10,6 +10,10 @@ import {
 import Image from "next/image"
 
 import { ProfileLinks } from "@/components/profile-links"
+import {
+  ProductInfoDialog,
+  type ProductInfo,
+} from "@/components/product-info-dialog"
 import { RoleAccordion, type RoleItem } from "@/components/role-accordion"
 import { SiteFooter } from "@/components/site-footer"
 import { SkillIcon } from "@/components/skill-icon"
@@ -25,6 +29,7 @@ type ShowcaseItem = {
   href?: string
   icon?: string
   storeLinks?: StoreLink[]
+  info?: ProductInfo
 }
 
 type StoreLink = {
@@ -197,19 +202,85 @@ const webPlatforms: ShowcaseItem[] = [
   },
   {
     name: "Beauty of Pets",
-    description: "Booking platform with payments and admin tools for pet businesses.",
+    description:
+      "Operations platform for pet businesses: bookings, services, groomers, payments, and admin workflows.",
     platform: "Web · Booking",
-    build: "Booking flows, checkout, and reusable admin interfaces",
+    build: "Admin dashboard · Groomer management · Razorpay checkout",
     scope: "Platform",
     href: "https://beautyofpets.com/",
+    info: {
+      shortName: "BOP",
+      category: "Booking operations platform",
+      summary:
+        "Built the back-office systems that let pet-service teams run their day-to-day business, not just accept a booking.",
+      systems: [
+        {
+          label: "Admin dashboard",
+          detail:
+            "Created dashboard workflows to manage organizations, services, and the operational data behind each booking.",
+        },
+        {
+          label: "Groomer management",
+          detail:
+            "Added groomer records and assignment-ready service operations so teams can organize who delivers each service.",
+        },
+        {
+          label: "Payments",
+          detail:
+            "Integrated Razorpay into the booking journey to support a reliable checkout and payment flow.",
+        },
+      ],
+      engineering: [
+        "Admin dashboard architecture",
+        "Organization & service data modelling",
+        "Booking and payment workflows",
+        "Razorpay integration",
+      ],
+    },
   },
   {
-    name: "Muftishamail",
-    description: "Islamic educational platform combining learning and commerce workflows.",
+    name: "Mufti Shamail",
+    description:
+      "Islamic learning and commerce platform with course, payment, and fatwa-management workflows.",
     platform: "Web · Education",
-    build: "React · Node.js · Express · MongoDB",
+    build: "E-commerce · Courses · Q&A / fatwa · Google Sheets",
     scope: "Freelance",
     href: "https://muftishamail.com/",
+    info: {
+      shortName: "MS",
+      category: "Learning, commerce & knowledge platform",
+      summary:
+        "Built connected systems for selling, teaching, and publishing Islamic knowledge—designed for both the public site and its administrators.",
+      systems: [
+        {
+          label: "E-commerce operations",
+          detail:
+            "Implemented management workflows for the commerce side of the platform and integrated Razorpay for online payments.",
+        },
+        {
+          label: "Course management",
+          detail:
+            "Built course-management tools so administrators can organize learning content and maintain the education catalogue.",
+        },
+        {
+          label: "Q&A and fatwa",
+          detail:
+            "Created structured management flows for questions, answers, and fatwa content, making knowledge easier to review and publish.",
+        },
+        {
+          label: "Google Sheets",
+          detail:
+            "Connected Google Sheets to support a practical, familiar workflow for managing and moving operational content.",
+        },
+      ],
+      engineering: [
+        "E-commerce back-office systems",
+        "Course and content workflows",
+        "Google Sheets integration",
+        "Razorpay payments",
+        "Structured Q&A / fatwa management",
+      ],
+    },
   },
 ]
 
@@ -689,7 +760,7 @@ function ShowcaseGrid({ items }: { items: ShowcaseItem[] }) {
             "sm:col-span-2 sm:border-r-0"
         )
 
-        return item.storeLinks ? (
+        return item.storeLinks || item.info ? (
           <article className={className} key={item.name}>
             <ShowcaseContent item={item} />
           </article>
@@ -735,9 +806,10 @@ function ShowcaseContent({ item }: { item: ShowcaseItem }) {
             </p>
           </div>
         </div>
-        {!item.storeLinks ? (
+        {!item.storeLinks && !item.info ? (
           <ArrowUpRight className="size-4 shrink-0 text-[var(--muted-foreground)] transition-[color,transform] duration-200 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[var(--brand)]" />
         ) : null}
+        {item.info ? <ProductInfoDialog project={item.info} title={item.name} /> : null}
       </div>
 
       <div className="border-t border-dashed border-[var(--line)] pt-3">
@@ -753,6 +825,16 @@ function ShowcaseContent({ item }: { item: ShowcaseItem }) {
               <StoreLinkButton key={link.store} link={link} />
             ))}
           </div>
+        ) : null}
+        {item.info && item.href ? (
+          <a
+            className="mt-3 inline-flex items-center gap-1.5 font-mono text-[10px] font-medium uppercase tracking-[0.1em] text-[var(--brand)] transition-colors hover:text-foreground"
+            href={item.href}
+            rel="noreferrer"
+            target="_blank"
+          >
+            Visit platform <ArrowUpRight className="size-3" />
+          </a>
         ) : null}
       </div>
     </>
