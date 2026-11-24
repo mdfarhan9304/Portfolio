@@ -288,7 +288,7 @@ const experiences: RoleItem[] = [
   {
     company: "Eternal Tech Verse Pvt. Ltd.",
     position: "Full Stack Product Engineer",
-    period: "Nov 2025 to Present",
+    period: "Nov 2025 – Nov 2026",
     stack: [
       "React",
       "Angular",
@@ -320,6 +320,35 @@ const experiences: RoleItem[] = [
       "Built a multi-tenant seller portal with dynamic subdomain routing and custom branding using Expo web and MongoDB.",
       "Developed RESTful APIs and integrated the Razorpay SDK across web and mobile platforms, achieving 40% faster load times.",
       "Integrated the Google Maps API for route optimization across the web dashboard and mobile apps.",
+    ],
+  },
+  {
+    company: "Evolvfit",
+    position: "React Native Developer Intern",
+    period: "Aug 2024 – Oct 2024",
+    stack: ["React Native", "Node.js", "Express.js", "PostgreSQL"],
+    logo: "/images/companies/evolvfit.png",
+    logoTone: "dark",
+    bullets: [
+      {
+        text: "Developed frontend and backend features for a fitness app with 1K+ downloads.",
+        link: {
+          label: "View on Google Play",
+          href: "https://play.google.com/store/apps/details?id=com.evolvfitprivatelimited.user&hl=en_IN",
+        },
+      },
+      "Built the trainer dashboard UI from Figma designs and backend endpoints for user management.",
+      "Optimized database queries and implemented scalable authentication APIs.",
+    ],
+  },
+  {
+    company: "Sikdar Technologies",
+    position: "React Native Developer Intern",
+    period: "May 2024 – June 2024",
+    stack: ["React Native", "Node.js", "Socket.IO", "Razorpay"],
+    bullets: [
+      "Developed the SwiftMed ambulance booking app with real-time tracking using Socket.IO.",
+      "Integrated Razorpay and built REST APIs for booking management.",
     ],
   },
 ]

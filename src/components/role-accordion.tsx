@@ -1,18 +1,29 @@
 "use client"
 
-import { ChevronDownIcon } from "lucide-react"
+import { ChevronDownIcon, ExternalLinkIcon } from "lucide-react"
 import Image from "next/image"
 import { useId, useState } from "react"
 
 import { cn } from "@/lib/utils"
+
+type RoleBullet =
+  | string
+  | {
+      text: string
+      link: {
+        label: string
+        href: string
+      }
+    }
 
 export type RoleItem = {
   company: string
   position: string
   period: string
   stack: string[]
-  logo: string
-  bullets: string[]
+  logo?: string
+  logoTone?: "dark"
+  bullets: RoleBullet[]
 }
 
 export function RoleAccordion({ items }: { items: RoleItem[] }) {
@@ -33,6 +44,12 @@ export function RoleAccordion({ items }: { items: RoleItem[] }) {
         const isOpen = openItems.includes(index)
         const triggerId = `${baseId}-trigger-${index}`
         const contentId = `${baseId}-content-${index}`
+        const initials = role.company
+          .split(/\s+/)
+          .filter((word) => word.length > 2)
+          .slice(0, 2)
+          .map((word) => word[0])
+          .join("")
 
         return (
           <div
@@ -51,14 +68,27 @@ export function RoleAccordion({ items }: { items: RoleItem[] }) {
                 type="button"
               >
                 <span className="flex min-w-0 items-center gap-3 sm:gap-4">
-                  <span className="grid size-12 shrink-0 place-items-center rounded-xl border border-dashed border-[var(--line-strong)] bg-[var(--secondary)] p-2">
-                    <Image
-                      alt=""
-                      className="size-full object-contain"
-                      height={32}
-                      src={role.logo}
-                      width={32}
-                    />
+                  <span
+                    className={cn(
+                      "grid size-12 shrink-0 place-items-center rounded-xl border border-dashed border-[var(--line-strong)] p-2",
+                      role.logoTone === "dark"
+                        ? "bg-[#111827]"
+                        : "bg-[var(--secondary)]"
+                    )}
+                  >
+                    {role.logo ? (
+                      <Image
+                        alt=""
+                        className="size-full object-contain"
+                        height={32}
+                        src={role.logo}
+                        width={32}
+                      />
+                    ) : (
+                      <span className="font-mono text-xs font-semibold tracking-[-0.08em] text-[var(--brand)]">
+                        {initials}
+                      </span>
+                    )}
                   </span>
                   <span className="min-w-0">
                     <span className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
@@ -97,7 +127,24 @@ export function RoleAccordion({ items }: { items: RoleItem[] }) {
                 <div className="px-4 pb-5 sm:px-5 sm:pb-6">
                   <ul className="list-disc space-y-2.5 pl-4 text-sm leading-6 text-[var(--muted-foreground)] marker:text-[var(--brand)]">
                     {role.bullets.map((bullet) => (
-                      <li key={bullet}>{bullet}</li>
+                      <li key={typeof bullet === "string" ? bullet : bullet.text}>
+                        {typeof bullet === "string" ? (
+                          bullet
+                        ) : (
+                          <>
+                            {bullet.text}{" "}
+                            <a
+                              className="inline-flex items-center gap-1 font-medium text-[var(--brand)] underline decoration-[var(--brand)]/45 underline-offset-4 transition-colors hover:text-foreground hover:decoration-current focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand)]"
+                              href={bullet.link.href}
+                              rel="noreferrer"
+                              target="_blank"
+                            >
+                              {bullet.link.label}
+                              <ExternalLinkIcon aria-hidden="true" className="size-3" />
+                            </a>
+                          </>
+                        )}
+                      </li>
                     ))}
                   </ul>
 
